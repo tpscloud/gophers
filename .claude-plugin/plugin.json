@@ -1,7 +1,7 @@
 {
   "name": "gophers",
   "description": "Source-verified agent skills for Go: Cobra command-line interfaces, Viper configuration, and Wails desktop apps, each backed by tested examples.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "coversheets"
   },

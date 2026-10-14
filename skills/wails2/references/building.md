@@ -23,14 +23,20 @@ The untagged build is useful: it never compiles the cgo webview code, so
 WebKitGTK, or C compiler. Keep testable code in packages that do not need a
 window, and test the bound methods with a fake for the runtime.
 
-Without the CLI, the minimum production build is:
+Without the CLI, the minimum production build builds the frontend first, so
+the embedded directory holds a fresh `index.html`, then compiles:
 
 ```sh
+(cd frontend && npm install && npm run build)
 go build -tags desktop,production -ldflags "-w -s" -o build/bin/app .
 ```
 
-Build the frontend first so the embedded directory holds a fresh
-`index.html`.
+Put both steps in the same Makefile target or script; a target that only runs
+`go build` embeds whatever `frontend/dist` held last, or nothing. The CLI does
+the same thing: it runs the `frontend:install` and `frontend:build` commands
+from `wails.json` in `frontend:dir` (default `frontend`) before compiling, and
+the project templates set them to `npm install` and `npm run build`. Without
+`wails.json`, use whatever the frontend's `package.json` calls its build.
 
 On macOS 11 and later, the CLI also sets
 `CGO_LDFLAGS="-framework UniformTypeIdentifiers -mmacosx-version-min=10.13"`.
