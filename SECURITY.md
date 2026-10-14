@@ -22,6 +22,6 @@ same pages.
 | [wails3](skills/wails3/SKILL.md) | [pass](https://www.skills.sh/tpscloud/gophers/wails3/security/agent-trust-hub) | [pass](https://www.skills.sh/tpscloud/gophers/wails3/security/socket) | [pass](https://www.skills.sh/tpscloud/gophers/wails3/security/snyk) | [100/100](https://tessl.io/registry/tpscloud/gophers/quality/wails3) |
 
 For the whole plugin, Tessl also publishes
-[eval results](https://tessl.io/registry/tpscloud/gophers/0.1.0/evals)
-and a [security report](https://tessl.io/registry/tpscloud/gophers/0.1.0/security)
-for 0.1.0.
+[eval results](https://tessl.io/registry/tpscloud/gophers/0.1.1/evals)
+and a [security report](https://tessl.io/registry/tpscloud/gophers/0.1.1/security)
+for 0.1.1.
