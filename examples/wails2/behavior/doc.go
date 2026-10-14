@@ -38,6 +38,11 @@
 //   - On macOS 11 and later the CLI adds -framework UniformTypeIdentifiers
 //     to CGO_LDFLAGS: pkg/commands/build/base.go. A manual go build on macOS
 //     without it failed to link (_OBJC_CLASS_$_UTType) when checked.
+//   - Before compiling, the CLI runs frontend:install and frontend:build from
+//     wails.json in frontend:dir, default "frontend": pkg/commands/build/base.go
+//     (BuildFrontend) and internal/project/project.go. Every project template
+//     sets them to "npm install" and "npm run build":
+//     pkg/templates/templates/*/wails.tmpl.json.
 //   - The module's go.mod declares go 1.25.0.
 //   - The CLI flags -platform, -nsis, -webview2, -clean, and -o:
 //     website/docs/reference/cli.mdx.

@@ -133,7 +133,7 @@ func main() {
 `//go:embed all:frontend/dist` embeds the built frontend; `all:` keeps files
 whose names start with `.` or `_`. The asset server looks for `index.html`
 below the embed root, so `fs.Sub` is not needed. Build the frontend before
-`go build`. If `frontend/dist` has no `index.html`, the app exits at startup
+`go build`, in the same Makefile target or script that compiles. If `frontend/dist` has no `index.html`, the app exits at startup
 with "no `index.html` could be found in your Assets fs.FS". A production
 binary must start without a Vite dev server.
 
