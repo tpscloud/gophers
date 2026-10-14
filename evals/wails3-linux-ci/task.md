@@ -1,6 +1,6 @@
 # Wails v3 on Ubuntu: CI and the release build
 
-A Wails v3.0.0-beta.28 project builds fine on a Mac. Its GitHub Actions job
+A Wails v3.0.0-beta.29 project builds fine on a Mac. Its GitHub Actions job
 on ubuntu-24.04 installs only Go and runs `go vet ./...` and
 `go test ./...`, and it fails inside
 `github.com/wailsapp/wails/v3/pkg/application` with errors such as

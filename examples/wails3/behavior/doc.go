@@ -1,6 +1,6 @@
 // Package behavior tests the Wails v3 behavior the skill states. Claims that
 // need a webview or a desktop session cannot be tested here; each is listed
-// below with the source it was checked against at v3.0.0-beta.28. Paths are
+// below with the source it was checked against at v3.0.0-beta.29. Paths are
 // inside the module github.com/wailsapp/wails/v3.
 //
 //   - ServiceStartup gets a context that is cancelled before shutdown; a
@@ -77,7 +77,7 @@
 //   - Generated promises have cancel(): .../src/cancellable.ts.
 //   - The project templates depend on @wailsio/runtime "latest":
 //     internal/templates/*/frontend/package.json. The npm package
-//     publishes 3.0.0-beta.28, matching the Go module (npm view).
+//     publishes 3.0.0-beta.29, matching the Go module (npm view).
 //   - Server mode: default localhost:8080, WAILS_SERVER_HOST and
 //     WAILS_SERVER_PORT override, /health, events over a WebSocket, and
 //     native-only calls are no-ops or errors:

@@ -2,7 +2,7 @@ module github.com/tpscloud/gophers/examples/wails3
 
 go 1.26.0
 
-require github.com/wailsapp/wails/v3 v3.0.0-beta.28
+require github.com/wailsapp/wails/v3 v3.0.0-beta.29
 
 require (
 	github.com/adrg/xdg v0.5.3 // indirect

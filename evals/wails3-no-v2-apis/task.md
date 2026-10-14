@@ -3,7 +3,7 @@
 The project's go.mod contains:
 
 ```
-require github.com/wailsapp/wails/v3 v3.0.0-beta.28
+require github.com/wailsapp/wails/v3 v3.0.0-beta.29
 ```
 
 `main.go` builds the app with `application.New(application.Options{...})`

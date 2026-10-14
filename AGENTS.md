@@ -24,7 +24,7 @@ skills.sh.json                skill groupings for the skills.sh page
 | cobra  | github.com/spf13/cobra, spf13/pflag       | cobra v1.10.2, pflag v1.0.9         |
 | viper  | github.com/spf13/viper, spf13/pflag       | viper v1.21.0, pflag v1.0.10        |
 | wails2 | github.com/wailsapp/wails/v2 desktop apps | wails v2.16.0                       |
-| wails3 | github.com/wailsapp/wails/v3 desktop apps | wails v3.0.0-beta.28 (prerelease)   |
+| wails3 | github.com/wailsapp/wails/v3 desktop apps | wails v3.0.0-beta.29 (prerelease)   |
 
 Each skill has its own module so its pins stay independent. Do not add a
 `go.work`: a workspace resolves one shared build list and would move a skill

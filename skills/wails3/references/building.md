@@ -2,7 +2,7 @@
 
 Build tags, cgo, the `wails3` CLI and its Taskfile, plain `go build`, the
 system libraries a Linux build needs, server mode, and the failures each one
-causes. Checked against v3.0.0-beta.28, whose `go.mod` declares `go 1.25.0`,
+causes. Checked against v3.0.0-beta.29, whose `go.mod` declares `go 1.25.0`,
 so the project needs Go 1.25 or newer. Taskfiles are generated into each
 project, so read the project's own copy before changing a build.
 
@@ -64,7 +64,7 @@ can write code that does not match the runtime. Without a global install,
 run the pinned one:
 
 ```sh
-go run github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0-beta.28 generate bindings -ts
+go run github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0-beta.29 generate bindings -ts
 ```
 
 Without the CLI, generate bindings, build the frontend, then run the `go

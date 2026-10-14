@@ -46,7 +46,7 @@
 //   - The module's go.mod declares go 1.25.0.
 //   - The CLI flags -platform, -nsis, -webview2, -clean, and -o:
 //     website/docs/reference/cli.mdx.
-//   - Wails v3 (checked at v3.0.0-beta.28) uses application.New and
+//   - Wails v3 (checked at v3.0.0-beta.29) uses application.New and
 //     Options.Services (v3/pkg/application), the wails3 CLI (v3/cmd/wails3),
 //     and GTK4 with webkitgtk-6.0 on Linux (v3/pkg/application/linux_cgo.go).
 package behavior

@@ -1,6 +1,6 @@
 # Rename a profile from the frontend
 
-A Wails v3.0.0-beta.28 app registers `application.NewService(&ProfileService{})`.
+A Wails v3.0.0-beta.29 app registers `application.NewService(&ProfileService{})`.
 Add a method the frontend calls to rename a saved profile. It takes a request
 with the profile ID and the new name and returns the updated profile. Names
 must be 1 to 64 characters after trimming and unique; IDs must exist. The

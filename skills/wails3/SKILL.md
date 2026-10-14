@@ -174,7 +174,9 @@ packages, and check:
 - a cancelled dialog writes nothing and returns no error;
 - native calls go through an interface faked in tests;
 - bindings were regenerated with the project's `wails3` version and build
-  tags, not edited, and the frontend type checks against them;
+  tags, not edited, and the frontend type checks against them; the handoff
+  names the command (`wails3 generate bindings` with its flags, or the
+  Taskfile task) so the user can rerun it after the next service change;
 - the frontend build is fresh, so `index.html` is in the embedded assets;
 - the native build succeeds with the project's tags when Wails integration
   changed.
@@ -188,12 +190,12 @@ what native behavior was not exercised.
 
 ## Sources
 
-Verified against Wails v3.0.0-beta.28, a prerelease. Each stated behavior has a test or a source citation in the
+Verified against Wails v3.0.0-beta.29, a prerelease. Each stated behavior has a test or a source citation in the
 [examples module](https://github.com/tpscloud/gophers/tree/main/examples/wails3).
 When the project's version differs, trust its module source over this skill.
 
-- [Application package](https://github.com/wailsapp/wails/tree/v3.0.0-beta.28/v3/pkg/application)
-- [Binding generator](https://github.com/wailsapp/wails/tree/v3.0.0-beta.28/v3/internal/generator)
-- [JavaScript runtime](https://github.com/wailsapp/wails/tree/v3.0.0-beta.28/v3/internal/runtime/desktop/@wailsio/runtime/src)
-- [Project template and Taskfiles](https://github.com/wailsapp/wails/tree/v3.0.0-beta.28/v3/internal/commands/build_assets)
-- [API documentation](https://pkg.go.dev/github.com/wailsapp/wails/v3@v3.0.0-beta.28/pkg/application)
+- [Application package](https://github.com/wailsapp/wails/tree/v3.0.0-beta.29/v3/pkg/application)
+- [Binding generator](https://github.com/wailsapp/wails/tree/v3.0.0-beta.29/v3/internal/generator)
+- [JavaScript runtime](https://github.com/wailsapp/wails/tree/v3.0.0-beta.29/v3/internal/runtime/desktop/@wailsio/runtime/src)
+- [Project template and Taskfiles](https://github.com/wailsapp/wails/tree/v3.0.0-beta.29/v3/internal/commands/build_assets)
+- [API documentation](https://pkg.go.dev/github.com/wailsapp/wails/v3@v3.0.0-beta.29/pkg/application)

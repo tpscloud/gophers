@@ -37,7 +37,7 @@ edit generated files. Commit them only if the project already does.
 
 Generated code imports `@wailsio/runtime`. The project templates depend on
 `"latest"`; pin the npm package to the same version as the Go module (for
-example `3.0.0-beta.28`) so the runtime and the backend agree.
+example `3.0.0-beta.29`) so the runtime and the backend agree.
 
 ## Calling and handling results
 
