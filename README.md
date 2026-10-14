@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Ftpscloud%2Fgophers%2Fmain%2F.tessl-plugin%2Fplugin.json&query=%24.version&label=version&prefix=v)](https://tessl.io/registry/tpscloud/gophers)
 [![Skill quality](https://github.com/tpscloud/gophers/actions/workflows/skill-quality.yml/badge.svg)](https://github.com/tpscloud/gophers/actions/workflows/skill-quality.yml)
-[![skills.sh](https://www.skills.sh/b/tpscloud/gophers)](https://www.skills.sh/tpscloud/gophers)
+[![skills.sh](https://www.skills.sh/b/tpscloud/gophers?label=skills.sh)](https://www.skills.sh/tpscloud/gophers)
 [![tessl](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.tessl.io%2Fv1%2Fbadges%2Ftpscloud%2Fgophers)](https://tessl.io/registry/tpscloud/gophers)
 
 Skills for AI coding agents that work on Go programs:
