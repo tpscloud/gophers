@@ -103,6 +103,13 @@ func (d desktop) SaveFile(name string) (string, error) {
 }
 ```
 
+Both blocks are trimmed from complete files that build and pass their tests:
+[`examples/wails3/main.go`](https://github.com/tpscloud/gophers/blob/main/examples/wails3/main.go)
+and
+[`examples/wails3/notes/service.go`](https://github.com/tpscloud/gophers/blob/main/examples/wails3/notes/service.go).
+Copy those for a runnable starting point; the desktop build needs cgo (see
+[references/building.md](references/building.md)).
+
 - `application.NewService` takes a pointer to a named, non-generic struct.
   Register one instance per type, in `Options.Services` or with
   `app.RegisterService` before `Run`. A service registered after `Run` starts
@@ -129,7 +136,15 @@ func (d desktop) SaveFile(name string) (string, error) {
 - Validate input again in Go: any script in the webview can call a binding.
   Calls from a webview run on their own goroutines and overlap, so guard
   shared state with a mutex.
-- `ServiceStartup` runs in registration order before windows open; its
+- A service can implement two optional lifecycle hooks:
+
+  ```go
+  // excerpt: optional lifecycle hooks (pkg/application/services.go)
+  func (s *Service) ServiceStartup(ctx context.Context, opts application.ServiceOptions) error
+  func (s *Service) ServiceShutdown() error
+  ```
+
+  `ServiceStartup` runs in registration order before windows open; its
   context is cancelled before shutdown, and a returned error makes `Run`
   return it. `ServiceShutdown` runs in reverse order.
 - `application.New` returns the first `App` on every later call. Build it
