@@ -1,0 +1,48 @@
+{
+  "context": "A bound method with validation and errors",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "value_error_return",
+      "description": "The bound method returns (Profile, error) or (*Profile, error), so a validation failure rejects the frontend promise.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "json_tags",
+      "description": "The request and result structs give every field an explicit json tag.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "go_side_validation",
+      "description": "Validates length, uniqueness, and the ID in Go, not only in the frontend.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "no_exported_helpers",
+      "description": "Validation and lookup helpers are unexported functions or methods, because every exported method on the bound struct is callable from JavaScript.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "locking",
+      "description": "Guards the profile map with a mutex because bound calls can run concurrently.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "regenerate_bindings",
+      "description": "Says to regenerate the wailsjs bindings (wails dev, wails build, or wails generate module) instead of editing them by hand.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "frontend_reject",
+      "description": "The TypeScript caller catches the rejected promise, shows the error text, and reports success only after the call resolves.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

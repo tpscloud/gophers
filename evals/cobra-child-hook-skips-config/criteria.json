@@ -1,0 +1,30 @@
+{
+  "context": "A child hook skips root config loading",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "nearest_hook_wins",
+      "description": "Explains that Cobra runs only the nearest persistent pre-run hook by default, so the child's hook replaces the root's.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "fix",
+      "description": "Fixes it with explicit shared setup (for example calling the config loader from the child hook or from the operation) or with `cobra.EnableTraverseRunHooks`.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "traverse_is_global",
+      "description": "If it uses `EnableTraverseRunHooks`, says it is a process-wide setting to set once before execution, not per command.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "lock_cleanup",
+      "description": "Releases the lock with `defer` in the same operation that acquires it, or notes that post-run hooks are skipped when `RunE` fails.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    }
+  ]
+}

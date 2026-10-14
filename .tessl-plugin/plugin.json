@@ -1,0 +1,12 @@
+{
+  "name": "tpscloud/gophers",
+  "description": "Source-verified agent skills for Go: Cobra command-line interfaces, Viper configuration, and Wails desktop apps, each backed by tested examples.",
+  "private": true,
+  "skills": [
+    "skills/cobra",
+    "skills/viper",
+    "skills/wails2",
+    "skills/wails3"
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Viper"
+  short_description: "Resolve and test Go configuration with Viper"
+  default_prompt: "Use $viper to implement or debug configuration loading in this Go project."

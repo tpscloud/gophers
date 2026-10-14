@@ -1,0 +1,24 @@
+{
+  "context": "Cleanup that never runs",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "post_hooks_skipped",
+      "description": "Explains that Cobra does not run `PostRunE` (or `PersistentPostRunE`) when `RunE` returns an error.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "defer_in_operation",
+      "description": "Opens the database inside the operation called from `RunE` and closes it with `defer` in the same function.",
+      "max_score": 3,
+      "category": "DESIGN"
+    },
+    {
+      "name": "error_returned",
+      "description": "Still returns the import error from `RunE` rather than printing it or calling `os.Exit`.",
+      "max_score": 1,
+      "category": "INTENT"
+    }
+  ]
+}

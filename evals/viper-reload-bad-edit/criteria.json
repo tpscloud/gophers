@@ -1,0 +1,30 @@
+{
+  "context": "A bad config edit reaches the running server",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "hook_on_failure",
+      "description": "Explains that Viper calls the change hook even when its reread failed, leaving the old values in the instance, so the hook cannot detect a bad edit by reading it.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "validate_snapshot",
+      "description": "On each change, loads and validates a complete new snapshot (for example with the startup loader on a fresh `viper.New()` instance) and reports the error instead of applying it when decoding or validation fails, so `rate.limit: 0` is rejected.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "safe_publish",
+      "description": "Publishes the snapshot with an `atomic.Pointer`, a mutex, or a channel, and does not have handlers read the watched Viper instance.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "test",
+      "description": "Adds a test that applies a valid edit, then an invalid one, and asserts the error is reported and the previous snapshot is still in effect.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

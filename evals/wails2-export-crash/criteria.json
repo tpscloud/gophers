@@ -1,0 +1,36 @@
+{
+  "context": "A runtime call with the wrong context, and a cancelled dialog",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "lifecycle_context",
+      "description": "Explains that Wails runtime functions need the context passed to OnStartup (or OnDomReady), and that any other context makes the runtime call log.Fatalf, which exits the process instead of returning an error.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "store_startup_ctx",
+      "description": "Stores the context from the OnStartup hook on the App and uses it for the dialog call.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "cancel_is_normal",
+      "description": "Handles an empty path from the dialog as a user cancel: returns without writing a file and without an error.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "testable_seam",
+      "description": "Puts the dialog behind an interface or function field so the test injects a fake and never calls the Wails runtime.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "hook_not_bound",
+      "description": "Keeps the startup hook unexported, or wires the exported method as OnStartup so Wails exempts it from binding, and adds no new exported helper methods to the bound struct.",
+      "max_score": 1,
+      "category": "DESIGN"
+    }
+  ]
+}

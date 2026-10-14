@@ -1,0 +1,24 @@
+{
+  "context": "A Wails v3 project",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "detects_v3",
+      "description": "Recognizes from go.mod and application.New that the project uses Wails v3, a prerelease, not v2.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "no_v2_api",
+      "description": "Does not use v2 APIs such as wails.Run, options.App, or the Bind field. Registers the method through the v3 mechanism (Services in application.Options) or says to confirm it in the pinned v3 module source.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "no_migration",
+      "description": "Does not migrate the project to v2 or change the Wails version.",
+      "max_score": 2,
+      "category": "DESIGN"
+    }
+  ]
+}

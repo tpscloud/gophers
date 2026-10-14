@@ -1,0 +1,36 @@
+{
+  "context": "v2 runtime calls pasted into a Wails v3 service",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "detects_mixing",
+      "description": "Identifies runtime.SaveFileDialog and runtime.EventsEmit as Wails v2 APIs that do not exist in v3, and does not add a github.com/wailsapp/wails/v2 import or change the Wails version.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "v3_apis",
+      "description": "Uses the v3 managers on the application (app.Dialog.SaveFile() with PromptForSingleSelection, and app.Event.Emit or a window's EmitEvent), reached through the App rather than a context.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "typed_event",
+      "description": "Registers the progress event once with application.RegisterEvent and a payload struct with json tags, and emits values of exactly that type (not a pointer or loose arguments).",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "cancel_is_normal",
+      "description": "Treats an empty path from the dialog as a cancel: returns without writing and without an error.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "testable_seam",
+      "description": "Puts the dialog and event calls behind an interface or function fields injected into the service, so the Go test uses a fake and never needs a webview, and keeps any new helpers unexported.",
+      "max_score": 2,
+      "category": "DESIGN"
+    }
+  ]
+}

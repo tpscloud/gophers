@@ -1,0 +1,42 @@
+{
+  "context": "A v3 service method with validation, errors, and startup work",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "value_error_return",
+      "description": "The method returns (Profile, error) or (*Profile, error), so a validation failure rejects the frontend promise.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "service_startup",
+      "description": "Loads profiles in ServiceStartup(ctx context.Context, options application.ServiceOptions) error, not in an exported Startup or Init method (which v3 would expose to JavaScript) and not through v2's OnStartup.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "go_side_validation",
+      "description": "Validates length, uniqueness, and the ID in Go, with helpers kept unexported, and guards the profile map with a mutex because calls overlap.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "json_tags",
+      "description": "Gives every field of the request and result structs an explicit json tag.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "regenerate_bindings",
+      "description": "Says to regenerate with wails3 generate bindings (or the Taskfile) instead of editing frontend/bindings, and does not mention wailsjs or wails generate module.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "frontend_reject",
+      "description": "The TypeScript caller catches the rejected promise, shows the error message, and reports success only after the call resolves.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

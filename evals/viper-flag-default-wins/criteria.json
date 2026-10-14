@@ -1,0 +1,36 @@
+{
+  "context": "A flag default overrides the config file",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "cause",
+      "description": "Explains that `Set` is the highest-precedence layer, so copying the flag's value (including its unchanged default) into it beats env and the file.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "bind_pflag",
+      "description": "Replaces the copy with `v.BindPFlag(\"server.port\", cmd.Flags().Lookup(\"port\"))`, checks its error, and puts the default in `SetDefault`, so the flag only wins when the user typed it.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "env_binding",
+      "description": "Binds the env name with a prefix and key replacer (or `BindEnv`) so `APP_SERVER_PORT` maps to `server.port`.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "read_after_parse",
+      "description": "Reads the effective value from Viper or the decoded struct after flag parsing, not from the flag variable.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "tests",
+      "description": "Tests default, file, env over file, and typed flag over env with a fresh Viper instance and command tree per case, clearing the env variable where it should be absent.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

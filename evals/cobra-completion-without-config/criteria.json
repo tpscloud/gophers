@@ -1,0 +1,24 @@
+{
+  "context": "Tab completion fails without a config file",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "hook_runs_for_completion",
+      "description": "Explains that the root persistent pre-run hook is skipped for --help and --version but runs for the `completion` command and for every hidden `__complete` request.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "fix",
+      "description": "Moves config loading into the operations that need it, or returns early from the hook for completion and help commands.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "test",
+      "description": "Adds a test that runs `__complete` or `completion` through `SetArgs` on a fresh tree with no config and expects success.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

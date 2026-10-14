@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wails v3"
+  short_description: "Build and debug Wails v3 desktop apps in Go"
+  default_prompt: "Use $wails3 to build, debug, or package this Wails v3 desktop application."

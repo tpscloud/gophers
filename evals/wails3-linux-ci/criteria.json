@@ -1,0 +1,36 @@
+{
+  "context": "cgo, GTK4, and testing a Wails v3 app on Linux CI",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "cgo_cause",
+      "description": "Explains that pkg/application needs cgo on Linux (and macOS), so it does not compile with CGO_ENABLED=0.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "no_v2_tag",
+      "description": "Rejects the webkit2_41 suggestion as a Wails v2 tag that v3 does not use.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "gtk4_packages",
+      "description": "For the release build lists a C compiler, pkg-config, libgtk-4-dev, and libwebkitgtk-6.0-dev (or the GTK3 pair libgtk-3-dev and libwebkit2gtk-4.1-dev with -tags gtk3), with CGO_ENABLED=1.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "ci_strategy",
+      "description": "Keeps CI free of GTK by testing Wails-free service packages, by building the entry point only with cgo, or by running the Wails tests with -tags server; or installs the GTK4 packages and enables cgo. Any of these counts when its trade-off is stated.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "production_tag",
+      "description": "Builds the release with -tags production (or wails3 build and the Taskfile), after building the frontend so index.html is embedded.",
+      "max_score": 1,
+      "category": "INTENT"
+    }
+  ]
+}

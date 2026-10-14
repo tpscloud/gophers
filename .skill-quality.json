@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "skills": [
+    "skills/cobra/SKILL.md",
+    "skills/viper/SKILL.md",
+    "skills/wails2/SKILL.md",
+    "skills/wails3/SKILL.md"
+  ],
+  "checks": [
+    {
+      "name": "Build and test the example modules",
+      "command": [
+        "bash",
+        "scripts/check.sh"
+      ]
+    }
+  ],
+  "frontmatter": {
+    "allowedKeys": [
+      "name",
+      "description",
+      "license"
+    ],
+    "requireDirectoryName": true
+  }
+}

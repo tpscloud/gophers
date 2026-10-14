@@ -1,0 +1,30 @@
+{
+  "context": "An environment variable is missing after Unmarshal",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "cause",
+      "description": "Explains that AutomaticEnv only answers lookups for keys Viper already knows, so `Unmarshal`, which walks `AllKeys`, never sees the env-only `db.password`.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "fix",
+      "description": "Registers the key with `v.BindEnv(\"db.password\")` (or an explicit env name) without adding a password default or a file entry, and checks the returned error.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "no_experimental",
+      "description": "Does not switch on the experimental struct binding or a build tag to solve it.",
+      "max_score": 1,
+      "category": "DESIGN"
+    },
+    {
+      "name": "test",
+      "description": "Adds a test that sets `APP_DB_PASSWORD` with `t.Setenv`, builds a fresh `viper.New()` instance through the loader, and asserts the decoded struct field.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

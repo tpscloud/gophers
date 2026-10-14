@@ -1,0 +1,4 @@
+# build output from examples
+/examples/bin/
+*.test
+.DS_Store

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Command-line tools",
+      "skills": [
+        "cobra",
+        "viper"
+      ]
+    },
+    {
+      "title": "Desktop apps",
+      "skills": [
+        "wails2",
+        "wails3"
+      ]
+    }
+  ]
+}

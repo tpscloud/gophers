@@ -1,0 +1,36 @@
+{
+  "context": "A list command with JSON output",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "fresh_tree",
+      "description": "Builds the command tree in a constructor function and injects the service; no package-level command variable or init() registration.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "payload_writer",
+      "description": "Writes the payload through `cmd.OutOrStdout()` (or an injected stdout writer), not `cmd.Println`, `cmd.Printf`, or `cmd.Print`, which default to stderr in the real binary.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "args_validation",
+      "description": "Sets an explicit `Args` validator such as `cobra.NoArgs`.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "context_forwarded",
+      "description": "Passes `cmd.Context()` to the service and executes with `ExecuteContext` in the test.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "test_isolation",
+      "description": "The test builds a fresh root, calls `SetArgs`, `SetOut`, and `SetErr`, and decodes the JSON from the captured stdout.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

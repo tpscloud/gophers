@@ -1,0 +1,24 @@
+{
+  "context": "A repeated flag splits values on commas",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "string_array",
+      "description": "Switches the flag to `StringArrayVar` (or `StringArray`), explaining that `StringSlice` splits each value on commas while `StringArray` keeps each repeated value literal.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "repeat_still_works",
+      "description": "Keeps support for repeating the flag to pass several messages.",
+      "max_score": 1,
+      "category": "INTENT"
+    },
+    {
+      "name": "test",
+      "description": "Adds a test on a fresh command tree that passes a value containing a comma plus a second `--message` and asserts exactly two whole values reach the handler.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

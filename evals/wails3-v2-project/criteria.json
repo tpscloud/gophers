@@ -1,0 +1,24 @@
+{
+  "context": "A Wails v2 project",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "detects_v2",
+      "description": "Recognizes from go.mod and wails.Run that the project uses Wails v2, not v3.",
+      "max_score": 3,
+      "category": "INTENT"
+    },
+    {
+      "name": "no_v3_api",
+      "description": "Does not use v3 APIs such as application.New, application.NewService, Services, or wails3 generate bindings. Adds an exported method on the struct already in Bind, or says to follow v2 guidance or the pinned v2 module source.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "no_migration",
+      "description": "Does not migrate the project to v3 or change the Wails version.",
+      "max_score": 2,
+      "category": "DESIGN"
+    }
+  ]
+}

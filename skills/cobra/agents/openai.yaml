@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cobra"
+  short_description: "Build and test Go CLIs with spf13/cobra"
+  default_prompt: "Use $cobra to build or improve this Go command-line interface."

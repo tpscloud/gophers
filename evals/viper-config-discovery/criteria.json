@@ -1,0 +1,30 @@
+{
+  "context": "The wrong config file gets parsed",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "type_forces_parser",
+      "description": "Explains that discovery tries every supported extension in each path before the next path, so `./app.toml` is found first, and that `SetConfigType(\"yaml\")` forces the YAML parser on it rather than filtering by extension.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "exact_file",
+      "description": "Fixes discovery by resolving an exact `app.yaml` per search directory and calling `SetConfigFile`, or by otherwise ensuring only the intended file and format are read.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "error_policy",
+      "description": "Stops discarding the error: ignores only a discovery miss (`viper.ConfigFileNotFoundError`, matched with `errors.As` on a value target or `errors.AsType`) and returns every other error, so a missing `--config` path, an unreadable file, or a parse error fails.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "tests",
+      "description": "Adds tests with `t.TempDir()` for a sibling `app.toml`, an absent optional file, and a missing explicit `--config` path.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "context": "Build tags and WebKitGTK on Ubuntu 24.04",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "production_tags",
+      "description": "Explains that a plain go build compiles but wails.Run refuses to start without the dev or production tag, and uses -tags desktop,production for the release build.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "webkit2_41",
+      "description": "Adds the webkit2_41 tag alongside desktop,production and installs libwebkit2gtk-4.1-dev, because Ubuntu 24.04 does not ship the webkit2gtk-4.0 development package.",
+      "max_score": 3,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "gtk3_not_gtk4",
+      "description": "Installs the GTK3 development package (libgtk-3-dev or equivalent), a C compiler, and pkg-config, and does not treat 4.1 as GTK4.",
+      "max_score": 2,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "ci_untagged",
+      "description": "Says the vet and test job builds without the dev or production tag, so it does not compile the cgo webview code and does not need the GTK or WebKitGTK packages.",
+      "max_score": 2,
+      "category": "DESIGN"
+    },
+    {
+      "name": "frontend_first",
+      "description": "Builds the frontend before go build so the embedded assets contain index.html.",
+      "max_score": 1,
+      "category": "INTENT"
+    }
+  ]
+}

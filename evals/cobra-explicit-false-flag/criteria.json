@@ -1,0 +1,24 @@
+{
+  "context": "An explicit false flag is ignored",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "uses_changed",
+      "description": "Uses `cmd.Flags().Changed(\"notify\")` (or a Viper binding that respects it) to tell an explicit `--notify=false` from an omitted flag.",
+      "max_score": 4,
+      "category": "EDGE_CASE"
+    },
+    {
+      "name": "precedence",
+      "description": "Applies the order: explicit flag, then config value, then default.",
+      "max_score": 2,
+      "category": "INTENT"
+    },
+    {
+      "name": "test_fresh_tree",
+      "description": "Adds a test that builds a fresh command tree per case and covers explicit false with config true.",
+      "max_score": 2,
+      "category": "INTENT"
+    }
+  ]
+}
