@@ -93,3 +93,11 @@ The "Publish to Tessl" workflow runs on pushes to `main` that change `skills/`,
 repository secret is set. Publishing runs every eval scenario, which costs
 Tessl credits, so bump the version (and the one in `.claude-plugin/plugin.json`)
 only for a release. Documentation changes never publish.
+
+## Excluded scanner dependency
+
+Do not install or run `cisco-ai-skill-scanner` (`skill-scanner`), including
+through `uvx`, CI, or review workflows. It depends on LiteLLM, which the owner
+excludes following the October 2026 supply-chain incident. Keep prior scanner
+reports as historical evidence. Use the remaining project checks without
+introducing LiteLLM as a direct or transitive dependency.
